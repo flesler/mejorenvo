@@ -112,13 +112,9 @@ function interrupt() {
 process.on('SIGINT', interrupt);
 process.on('SIGHUP', interrupt);
 process.on('SIGTERM', interrupt);
-process.on('SIGTSTP', interrupt);
-// Fix SIGINT not working on Windows
+// Fix CTRL+C on Windows (NOT working)
 require('readline')
 	.createInterface({input:process.stdin, output:process.stdout})
-	.on('SIGINT', interrupt)
-	.on('SIGHUP', interrupt)
-	.on('SIGTSTP', interrupt)
-	.on('SIGTERM', interrupt);
+	.on('SIGINT', interrupt);
 
 queueNextListing();
