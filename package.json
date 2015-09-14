@@ -1,0 +1,11 @@
+{
+  "name": "mejorenvo",
+  "author": "Ariel Flesler <aflesler@gmail.com>",
+  "version": "1.0.0",
+  "description": "MejorEnVO crawler",
+  "private": true,
+  "main": "./index.js",
+  "dependencies": {
+    "node-spider": "latest"
+  }
+}
