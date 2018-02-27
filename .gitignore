@@ -1,2 +1,2 @@
-movies.*
-node_modules
+movies*.json
+movies.html

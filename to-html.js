@@ -11,8 +11,9 @@ stream.on('end', function() {
 });
 
 function convertToHTML(list) {
-	console.log('<html><head><title>MejorEnVO</title></head><body><h1>MejorEnVO</h1><ol>');
-	
+	console.log('<html><head><title>MejorEnVO</title><style>img{width:16px;height:16px}</style></head>');
+	console.log('<body><h1>MejorEnVO</h1><ol>');
+
 	var filtered = list.filter(likedMovie);
 	sort(filtered).forEach(function(movie) {
 		var subs = movie.subs + '?' + movie.torrentName.split(/_(20|19)\d\d_/).pop();

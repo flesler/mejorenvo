@@ -6,8 +6,8 @@ var Spider = require('node-spider'),
 const MOVIE_PATH_RE = /descargar-.*?-(\d+)\.html$/;
 const VALID_QUALITIES_RE = /HDRip|DVDRip/;
 const DOMAIN = 'http://www.mejorenvo.com';
-const MAX_PAGE = 15;
-const END_ID = '12595';
+const MAX_PAGE = 30;
+const END_ID = '13420';
 const MAX_ITEMS = Infinity;
 
 var spider = new Spider({
@@ -74,7 +74,9 @@ function parseMovie(page, doc) {
 	});
 
 	var torrent = $('a[href$="torrent=1"]');
-	movie.torrent = doc.resolve(torrent.attr('href'));
+	var url = torrent.attr('href');
+	if (!url) return;
+	movie.torrent = doc.resolve(url);
 	movie.torrentName = torrent.siblings('span').first().text().replace('.torrent', '');
 	movie.subs = $('a[href*=subswiki]').attr('href');
 
